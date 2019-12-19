@@ -66,10 +66,10 @@ const OptimizelyDemoHandler = async () => {
 
 }
 exports.handler = function (event, context, callback) {
-  console.log(OptimizelyDemoHandler(), 'Op body');
-  OptimizelyDemoHandler().then(function(data){
-    console.log(data, 'data');
-  });
+  // console.log(OptimizelyDemoHandler(), 'Op body');
+  // OptimizelyDemoHandler().then(function(data){
+  //   console.log(data, 'data');
+  // });
 
     callback(null, {
       statusCode: 200,
