@@ -65,7 +65,7 @@ const OptimizelyDemoHandler = async () => {
 
 
 }
-exports.handler = function (event, context, callback) {
+exports.handler = async (event, context, callback) => {
   const send = body => {
     callback(null, {
       statusCode: 200,
@@ -77,14 +77,22 @@ exports.handler = function (event, context, callback) {
   }
 
   const  getPage = () => {
-    OptimizelyDemoHandler().then(function(data){
-      console.log(data, 'data');
-      send(data);
+    return OptimizelyDemoHandler().then(function(data){
+      // console.log(data, 'data');
+      return data;
+      // send(data);
     });
   }
 
+  const data = await getPage();
+  console.log(data,'test selected');
+  return {
+    statusCode: 200,
+    body: data 
+  }
 
-  getPage();
+
+  // getPage();
   // callback(null, response);
 
 };
