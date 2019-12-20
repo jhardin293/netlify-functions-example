@@ -41,9 +41,9 @@ let initOptimizely = async (projectID) => {
 
 const OptimizelyDemoHandler = async () => {
   let userId = '12345393';
-  const html1 = '<h1>Test 1</h1>',
-    html2 = '<h1>Test 2</h2>',
-    html3 = '<h1>Test 3</h2>';
+  const html1 = 'Test 1',
+    html2 = 'Test 2',
+    html3 = 'Test 3';
 
 
   if (!optimizelyClientInstance) {
