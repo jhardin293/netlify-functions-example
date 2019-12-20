@@ -40,7 +40,7 @@ let initOptimizely = async (projectID) => {
 };
 
 const OptimizelyDemoHandler = async () => {
-  let userId = '12345';
+  let userId = '12345sdfkjsdlfkd';
   const html1 = '<h1>Test 1</h1>',
     html2 = '<h1>Test 2</h2>',
     html3 = '<h1>Test 3</h2>';
@@ -67,13 +67,27 @@ const OptimizelyDemoHandler = async () => {
 }
 exports.handler = function (event, context, callback) {
   var start = new Date();
-  OptimizelyDemoHandler().then(function(data){
+  let htmlData = 'test';
+  return OptimizelyDemoHandler().then(function(data){
     console.log(data, 'data');
     var end = new Date() - start
+    htmlData = data;
     console.info('Execution time: %dms', end);
-    callback(null, {
+    return {
       statusCode: 200,
-      body: data
-    });
+      headers: {
+        'Content-Type': 'text/html',
+      },
+      body: htmlData
+    }
+    // callback(null, {
+    //   statusCode: 200,
+    //   body: data
+    // });
   });
+  console.log(OptimizelyDemoHandler(),)
+
+
+  // callback(null, response);
+
 };
